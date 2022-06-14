@@ -16,6 +16,11 @@ async def status():
     return {"message": "online"}
 
 
+@app.get("/machine/stop")
+def stop_machine():
+    os.system("bash /home/chatchai/sbin/poweroff.sh")
+
+
 @cbv(router)
 class ServerManager:
     server_session = None
