@@ -8,8 +8,6 @@ import time
 import io
 
 
-
-
 def flush_until_block(stdout: io.BufferedReader, pipe: Connection):
     logger = logging.getLogger("flush_until_block")
     while True:
@@ -75,7 +73,7 @@ def wait_until_input_availabel(process: Popen, wait_for: float = 5.0, get_return
     pipe_client.close()
     logging.info("closing all connections and terminate reader process")
     return line_busket
-            
+
 
 def communicate(process: Popen, process_cmd: str, wait_for=0.2):
     logging.info(f"write to stdin stream: {process_cmd}")
@@ -89,7 +87,6 @@ class MinecraftServer:
     process: Popen
     status: bool = False
     player: int = 0
-
 
     def start_server(self, Popen_command: list):
         self.process = Popen(Popen_command, stdin=PIPE, stdout=PIPE, stderr=STDOUT, text=True)
