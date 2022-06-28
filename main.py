@@ -71,6 +71,7 @@ class ServerManager:
         if ServerManager.server_session is None:
             return {"message": "server is offline", "exit_code": 0}
         ServerManager.server_session.kill()
+        ServerManager.server_session = None
         return {"messgae": "server have been stopped", "exit_code": 0}
 
 
